@@ -1,0 +1,30 @@
+# Tell Spring where to get the data from
+#this is what you need to run h2 database
+spring:
+    datasource:
+        #url: jdbc:h2:mem:moviesdb       # name of your db - only active when its running, none of data gets saved - if you want to persist data between runs you can specify a file path: jdbc:h2:file:[path]
+        #username: sa                    # this is the default username for h2
+        #password:                       # optional for h2
+        #driverClassName: org.h2.Driver  # jdbc uses this to connect to database
+
+        #TO CONNECT TO POSTGRES
+        url: jdbc:postgresql://localhost:5432/books
+        username: postgres
+        password:                                 
+
+    #jpa:
+        #database-platform: org.hibernate.dialect.H2Dialect      # tells spring data jpa that we're using h2 database
+        #defer-datasource-initialization: true                   # tells JPA to wait until hibernate has initialized before loading the data to h2
+
+    output:
+        ansi:
+            enabled: ALWAYS
+
+server:
+    port: 8282     # changes port number for server
+
+# set logging level
+logging:
+    level:
+        com:
+            skillstorm: debug
