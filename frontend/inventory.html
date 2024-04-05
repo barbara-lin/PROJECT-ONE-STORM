@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="inventory.js" defer></script> <!-- defer will wait to load your script until your html has finished parsing-->
+</head>
+<body>
+
+<!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #075a95;">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand mx-5 btn btn-outline-light" href="index.html">MANAGEMENT HOME</a>
+
+            <!-- Toggler/collapsible Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary mx-4" href="warehouses.html">WAREHOUSES</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary mx-4" href="inventory.html">INVENTORY</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light mx-4" style="margin-top: 1px;" href="#">LOGIN</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--CRUD FORMS!!!! -->
+    <div class="container-fluid">
+
+         <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Add New Book</h1>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                   <div class="modal-body">
+       
+
+                <!--NEW BOOK FORM-->
+                <!--action=# prevents page redirection!!-->
+                <!--class= is the styling and you can use bootstrap for that (look on website)-->
+                <form id="new-book-form" action="#">
+                    <div class="form-group">
+                        <label>Book Title</label>
+                        <input id="new-book-title" name="new-book-title" type="text" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book Author</label>
+                        <input id="new-book-author" name="new-book-author" type="text" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book Quantity</label>
+                        <input id="new-book-quantity" name="new-book-quantity" type="text" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book Price</label>
+                        <input id="new-book-price" name="new-book-price" type="text" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Warehouse Location</label>
+                        <input id="new-warehouse-location" name="new-warehouse-location" type="text" class="form-control"/>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                 <button type="submit" class="btn btn-primary">Save</button>
+                 </div>
+                 </div>
+                 </div>
+                 </div>
+         </form>
+
+
+            <!-- UPDATE BOOK FORM-->
+
+            <!-- Edit Book Modal -->
+    <div class="modal fade" id="editBookModal" tabindex="-1" aria-labelledby="editBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <h5 class="modal-title" id="editBookModalLabel">Edit Book</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+             <div class="modal-body">
+          
+
+            <form id="update-book-form" action="#">
+
+                <div class="form-group">
+                    <label>Book ID</label>
+                    <input id="update-book-id" name="update-book-id" type="text" class="form-control" disabled/> <!--makes sure can't include any changes with disabled-->
+                    <!--typically put disabled on the id= -->
+                </div>
+
+                <div class="form-group">
+                    <label>Book Title</label>
+                    <input id="update-book-title" name="update-book-title" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Author</label>
+                    <!--THERE SHOULD NOT BE ANY COMMAS BETWEEN INPUT ID AND NAME-->
+                    <input id="update-book-author" name="update-book-author" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Quantity</label>
+                    <input id="update-book-quantity" name="update-book-quantity" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Price</label>
+                    <input id="update-book-price" name="update-book-price" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Warehouse ID</label>
+                    <input id="update-warehouse-id" name="update-warehouse-id" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Warehouse Location</label>
+                    <input id="update-warehouse-location" name="update-warehouse-location" type="text" class="form-control"/>
+                </div>
+
+
+             </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                         <button id="update-button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+             </div>
+            </form>
+
+            
+
+
+            <!-- DELETE BOOK FORM-->
+
+             <!-- delete book modal-->
+    <div class="modal fade" id="deleteBookModal" tabindex="-1" aria-labelledby="deleteBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="deleteBookModalLabel">Delete Book</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+
+        
+            <form id="delete-book-form" action="#">
+
+                <div class="form-group">
+                    <label>Book ID</label>
+                    <input id="delete-book-id" name="delete-book-id" type="text" class="form-control" disabled/> 
+                </div>
+
+                <div class="form-group">
+                    <label>Book Title</label>
+                    <input id="delete-book-title" name="delete-book-title" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Author</label>
+                    <input id="delete-book-author" name="delete-book-author" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Quantity</label>
+                    <input id="delete-book-quantity" name="delete-book-quantity" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Book Price</label>
+                    <input id="delete-book-price" name="delete-book-price" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Warehouse ID</label>
+                    <input id="delete-warehouse-id" name="delete-warehouse-id" type="text" class="form-control" disabled/>
+                </div>
+
+                <div class="form-group">
+                    <label>Warehouse Location</label>
+                    <input id="delete-warehouse-location" name="delete-warehouse-location" type="text" class="form-control" disabled/>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button id="delete-button" class="btn btn-primary">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            </form>
+
+
+    <!--TABLE!!!!!-->
+    <div class="container-fluid">
+        <h2 class="inventory-heading">INVENTORY</h2>
+
+         <!-- Button trigger modal -->
+         <div class="my-3">
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+             Add New Book
+             </button>
+            </div>
+
+        <table class="table table-bordered table-primary table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Warehouse</th>
+
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="book-table-body">
+                <!--doing this dynamically with javascript. but this is where all the data is stored: in the table body!! -->
+
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+
+    <!--bootstrap js bundle with popper-->
+    <!--remember to check the integrity= with error message if something isn't working!! -->
+    <!--typically it's the value right after the sha384- you can delete that value and paste in the one from the error message! yay!-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

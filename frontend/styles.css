@@ -1,0 +1,95 @@
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color:rgb(250, 251, 251);
+    padding: 0 30px; 
+    margin: 0 15px; 
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Arial', sans-serif; 
+    font-size: 20px;
+    letter-spacing: 3px;
+    color:rgb(250, 251, 251);
+}
+
+.navbar {
+    width: 100%; /* Set navbar width to 100% */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the page takes up at least the height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+.container-fluid {
+    text-align: center; /* Center align content within container */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.inventory-heading {
+    font-size: 50px; 
+    letter-spacing: 8px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+
+.table {
+    margin-bottom: 0; /* Remove default margin */
+    width: 70%;
+    margin: 0 auto;
+}
+
+.table td {
+    padding: 8px; /* Adjust padding for content */
+}
+
+.table th {
+    font-family: "Arial", sans-serif; 
+    font-weight: bold; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    padding: 8px;
+}
+
+
+
+.welcome {
+    color: rgb(253, 250, 250); 
+    text-align: center; 
+    font-size: 40px; 
+    letter-spacing: 10px; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin-top: 50vh; /* Adjust the margin-top value to vertically center the text */
+    display: block; /* Change the display property to block */
+    position: relative; 
+    z-index: 1; 
+    font-family: "Arial", sans-serif; 
+    overflow: hidden; /* Hide overflow to prevent text wrapping */
+    white-space: nowrap; 
+    
+    
+}
+
+.custom-background-color {
+    background-color: #6195f5; 
+    position: relative;   /*moves documents back*/
+    z-index: -1;
+    height: 100vh;
+    
+   
+}
+
+
+
+
+

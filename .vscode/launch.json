@@ -1,0 +1,18 @@
+{
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjectOneApplication<project-one>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.skillstorm.projectone.ProjectOneApplication",
+            "projectName": "project-one",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env", 
+            "port": 8282
+        }
+    ]
+        
+    
+}
